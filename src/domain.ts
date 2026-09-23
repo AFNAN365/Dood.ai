@@ -9,7 +9,7 @@ export interface PaymentRequest { tenantId: string; invoiceId: string; actorId: 
 export interface DecisionBundle { decision: Decision; reasons: string[]; policyVersion: string; checkedAt: string; }
 export interface Proposal {
   tenantId: string; id: string; operation: "payment.execute"; payloadHash: string; requesterId: string;
-  idempotencyKey: string; invoiceId: string; amount: Money; status: ProposalStatus;
+  idempotencyKey: string; invoiceId: string; invoiceVersion: number; amount: Money; status: ProposalStatus;
   decision: DecisionBundle; createdAt: string; approvedBy?: string; approvedAt?: string; executedAt?: string;
 }
 export interface AuditEvent { tenantId: string; id: string; type: string; actorId: string; correlationId: string; at: string; evidence: Record<string, unknown>; }
